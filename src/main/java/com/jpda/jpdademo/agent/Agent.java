@@ -1,6 +1,7 @@
 package com.jpda.jpdademo.agent;
 
-import com.jpda.jpdademo.util.Utils;
+
+import com.jpda.jpdademo.util.UTILS;
 
 import java.io.PrintStream;
 import java.lang.instrument.Instrumentation;
@@ -38,14 +39,14 @@ public class Agent {
         ps.println("I Am run in Thread:" + Thread.currentThread().getName());
 
         // 没有提供参数，只能就此结束
-        if (Utils.isNullOrEmpty(args)) {
+        if (UTILS.isNullOrEmpty(args)) {
             ps.println("需要提供挂在JVM所需要的参数，[coreJar;configure]");
             return;
         }
 
         String[] argsArr = args.split(";");
 
-        if (Utils.isNullOrEmptyArray(argsArr)) {
+        if (UTILS.isNullOrEmptyArray(argsArr)) {
             ps.println("需要提供挂在JVM所需要的参数，[coreJar;configure]");
             return;
         }

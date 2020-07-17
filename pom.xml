@@ -15,7 +15,25 @@
 	<description>Demo project for jpda</description>
 
 	<properties>
+		<asciitable.version>0.3.2</asciitable.version>
+		<jdk.version>1.8</jdk.version>
 		<java.version>1.8</java.version>
+		<asm.version>2.0</asm.version>
+		<slf4j.version>1.7.21</slf4j.version>
+		<jna.version>5.5.0</jna.version>
+		<netty.version>4.1.42.Final</netty.version>
+		<hessian.version>3.1.5</hessian.version>
+		<jline.version>2.14.6</jline.version>
+		<jopt.version>4.6</jopt.version>
+		<asm.version>6.0</asm.version>
+		<commons-lang3.version>3.4</commons-lang3.version>
+		<commom-io.version>2.4</commom-io.version>
+		<jackson.core.version>2.9.3</jackson.core.version>
+		<jackson.databind.version>2.9.10.1</jackson.databind.version>
+		<spring.version>4.3.13.RELEASE</spring.version>
+		<rxjava.veersion>0.20.7</rxjava.veersion>
+		<rxnetty.version>0.4.7</rxnetty.version>
+		<!--<jansi.version>1.17.1</jansi.version>-->
 	</properties>
 
 	<dependencies>
@@ -43,6 +61,121 @@
 			<scope>system</scope>
 			<systemPath>${java.home}/../lib/tools.jar</systemPath>
 		</dependency>
+
+
+		<!-- jna for invoking native code like libc -->
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>${jna.version}</version>
+		</dependency>
+
+
+		<!-- for java-debug-tool transport -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>${netty.version}</version>
+		</dependency>
+
+		<!-- java-debug-tool protocol -->
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+			<version>${hessian.version}</version>
+		</dependency>
+
+		<!-- for java command line  -->
+		<dependency>
+			<groupId>jline</groupId>
+			<artifactId>jline</artifactId>
+			<version>${jline.version}</version>
+		</dependency>
+
+		<!-- for parse command line options -->
+		<dependency>
+			<groupId>net.sf.jopt-simple</groupId>
+			<artifactId>jopt-simple</artifactId>
+			<version>${jopt.version}</version>
+		</dependency>
+
+		<!-- bytecode & enhance -->
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-commons</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commom-io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.databind.version}</version>
+		</dependency>
+
+		<!-- spring expression -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.netflix.rxjava</groupId>
+			<artifactId>rxjava-core</artifactId>
+			<version>${rxjava.veersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- RxNetty for httpServer -->
+		<dependency>
+			<groupId>io.reactivex</groupId>
+			<artifactId>rxnetty</artifactId>
+			<version>${rxnetty.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-http</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport-native-epoll</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

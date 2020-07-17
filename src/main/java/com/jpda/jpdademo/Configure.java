@@ -1,4 +1,4 @@
-package com.jpda.jpdademo.config;
+package com.jpda.jpdademo;
 
 import com.jpda.jpdademo.util.UTILS;
 
@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class Configure {
-
 
     private String pid;
     private String targetIp;
